@@ -1,5 +1,5 @@
 # 05 Third-Party APIs: Work Day Scheduler
-[Launch Work Day Scheduler](https://.github.io/)
+[Launch Work Day Scheduler](https://samdemarco.github.io/workday-scheduler/)
 
 ## Challenges
 
