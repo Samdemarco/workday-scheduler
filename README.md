@@ -37,3 +37,13 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 ```
+
+## My Development Enviromment:
+  
+  * Visual Studio Code
+  * Gitbash Terminal
+  * Github
+  * Moment.js API for dates and times
+  * JQuery APIs
+  * Bootstrap for CSS styling
+  * Google Fonts
