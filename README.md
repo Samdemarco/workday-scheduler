@@ -1,7 +1,14 @@
 # 05 Third-Party APIs: Work Day Scheduler
 [Launch Work Day Scheduler](https://.github.io/)
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+## Challenges
+
+Some of the bigger challenges were figuring out how to use moment.js formatting correctly and dynamic color coding time slots based on the time of day. Once I was able to figure this out the majority of the design fell into place. Overall, very fun project to work on!  
+  
+## Assignment Details 
+
+Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. 
+![Scheduler Mock-up](05-third-party-apis-homework-demo.gif)
 
 
 ## User Story
