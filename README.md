@@ -7,7 +7,8 @@ Some of the bigger challenges were figuring out how to use moment.js formatting 
   
 ## Assignment Details 
 
-Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. 
+Create a simple calendar application that allows a user to save events for each hour of the day by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery. The GIF below demonstrates what the final project should look like:
+
 ![Scheduler Mock-up](05-third-party-apis-homework-demo.gif)
 
 
