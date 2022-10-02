@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ALL SOURCE KEPT IN SINGLE FILE (index.html) GIVEN THAT ALL JS,CSS AND HTML CONSIST OF JUST OVER 200 LINES OF CODE -->
+
+<!-- CSS STYLING  -->
+<style>
+  /* STYLED INPUT FIELD TO TAKE UP ENTIRE ROW FOR COLOR UNIFORMITY */
+  input[type=text] {
+    width: 100%;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 4px;
+  }
+  /* STYLING FOR TABLE */
+  .table-container {
+    display: flex;
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom: 100px;
+  }
+  /* STYLING FOR EACH DATA CELL */
+  .td {
+    text-align: right;
+  }
+  /* BUTTON STYLING  */
+  button {
+    top: 50%;
+    background-color: turquoise;
+    border: none;
+    border-radius: 30px;
+    padding: 15px;
+    min-height: 30px;
+    min-width: 70px;
+  }
+
+  button:hover {
+    background-color: grey;
+    transition: 0.7s;
+  }
+</style>
+<!-- INCLUDE ALL CDN LINKS TO ALL FRAMEWORKS USED FOR CODE -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Work Day Scheduler</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <header class="jumbotron">
+      <h1 class="display-3">Work Day Scheduler</h1>
+      <p class="lead">A simple calendar app for scheduling your work day</p>
+      <p id="currentDay" class="lead"></p>
+      <h2><span id="time-display"></span></h2>
+      </div>
+    </header>
+    <!-- USED 'TABLE' CONTAINER TO CREATE A TABLE 3C X 9R TO REFLECT WORK DAY -->
+    <!-- CSS CLASSES FOR TABLES ALSO BEING USED VIA BOOTSTRAP -->
+    <div class="table-container">
+      <table style="width:100%" id="tb1">
+        <!-- ENSURED THAT TEXT/TASK AREA IS LARGE ENOUGH FOR EVENT -->
+        <tr> 
+          <th style="width:5%"></th> 
+          <th style="width:80%"></th>
+          <th style="width:5%"></th>
+        </tr>
+        <tr>
+          <!-- EACH ROW WAS DESIGNED WITH A DOTTED BORDER TO VISUALLY DIVIDE TIME SLOTS -->
+          <td style="border-top: thin dotted darkgray; text-align: right;">9AM</td>
+          <td>
+            <input class="table-success" id="row0" type="text" value="">
+          </td>
+          <td>
+            <!-- ALL SAVE BUTTONS INCLUDE 'FLOPP-DISK' ICON SIMILAR TO MOCK UP -->
+            <!-- STORE TASK TO LOCAL STORAGE ONCE SAVE BUTTON CLICKED BY INVOKING 'storeTask()' FOR EACH TIME SLOT -->
+            <button onclick="storeTask('row0')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <!-- USED BOOTSTRAP CELL STYLING FOR COLOR INDICATOR -->
+          <td style="border-top: thin dotted darkgray; text-align: right;">10AM</td>
+          <td class="table-success" id="10AM" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row1" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row1')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">11AM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row2" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row2')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">12PM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row3" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row3')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">1PM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row4" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row4')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">2PM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row5" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row5')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">3PM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row6" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row6')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">4PM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row7" type="text" value="">
+          </td>
+          <td>
+            <button onclick="storeTask('row7')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td style="border-top: thin dotted darkgray; text-align: right;">5PM</td>
+          <td class="table-success" style="border-top: thin dotted darkgray">
+            <input class="table-success" id="row8" type="text" value="" placeholder="Task">
+          </td>
+          <td>
+            <button onclick="storeTask('row8')">
+              <span class="glyphicon glyphicon-floppy-disk"></span>
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+
+  <script>
+    //THIS FUNCTION STORES TASK/EVENT TO LOCAL STORAGE
+    function storeTask(rowId) {
+      var task = document.getElementById(rowId);
+      localStorage.setItem(rowId, task.value);
+    }
+    //THIS FUNCTION RETRIEVES TASKS SAVED IN LOCAL STORAGE FOR PERSISTANCE AND FOR LOOP BASED ON 9 HR WORK DAY
+    function retrieveTask() {
+      for (i = 0; i <= 8; i++) {
+        var rowIs = "row" + i;
+        //IF NO VALUE STORED PLACE BLANKS IN TASK CELL
+        if (localStorage.getItem(rowIs) === null) {
+          document.getElementById(rowIs).placeholder = "";
+        } else {
+          document.getElementById(rowIs).placeholder = localStorage.getItem(rowIs);
+        }
+      }
+    }
+    //THIS FUNCTION USES MOMENT.JS TO DETERMINE DAY AND DISPLAY IN FORMAT SPECIFIED
+    function displayTime() {
+      var rightNow = moment().format('dddd, MMMM Do');
+      hour = moment().format('H');
+      $('#time-display').text(rightNow);
+    }
+    setInterval(displayTime, 1000);
+    //THIS FUNCTION CHECKS FOR THE HOUR OF DAY BASED ON 24HR TIME FORMAT (MOMENT.JS) TO SIMPLIFY MATH
+    //IT THEN COLOR CODES THE TIME SLOTS BASED ON PAST (GRAY), PRESENT (RED), OR FUTURE (GREEN DEFAULT)
+    //MATH WAS IMPLEMENTED BASED ON START OF WORKDAY BEING 9AM AND CURRENT HOUR USED TO DETERMINE TIME-SLOT ITERATIONS
+    function timeCheck() {
+      var currentHour = moment().format('H');
+      if (currentHour >= 9) {
+        for (i = 0; i <= (currentHour - 9); i++) {
+          if (currentHour - 9 === i) {
+            $('#row' + i).attr('class', 'table-danger');
+          } else {
+            $('#row' + i).attr('class', 'table-secondary');
+          }
+        }
+      }
+    }
+    //INVOKE BOTH timeCheck() AND retrieveTask() 
+    timeCheck();
+    retrieveTask();
+
+  </script>
+  
+</html>
